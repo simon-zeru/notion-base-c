@@ -1,10 +1,10 @@
 #define _POSIX_C_SOURCE 200809L  // getline in POSIX.1-2008
-
+#define BUFFER_LEN 64
 /* à compléter: entêtes */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 /*
  * readline() reads an entire line from stream and stores at most one less than
  * size characters into the buffer pointed to by buffer.
@@ -39,7 +39,26 @@ static ssize_t readline(char *buffer, size_t size, FILE *stream)
 
 int main(void)
 {
-	/* à compléter: corps de main */
+	char chaine[BUFFER_LEN];
+    int lower = 0, upper = 0, other = 0;  
 
-	return EXIT_SUCCESS;
+    printf("Entrez une chaine quelconque : ");
+    const int sizeChaine = readline(chaine, BUFFER_LEN, stdin);
+
+    for (int i = 0; i < sizeChaine; i++) {
+        char c = chaine[i];
+        if (islower(c)) {
+            lower++;
+        } else if (isupper(c)) {
+            upper++;
+        } else {
+            other++;
+        }
+    }
+
+    printf("\nMinuscules: %d", lower);
+    printf("\nMajuscules: %d", upper);
+    printf("\nAutres: %d\n", other);
+
+    return EXIT_SUCCESS;
 }
