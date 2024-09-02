@@ -9,4 +9,5 @@ int main(void) {
         result = i * table;
         printf("\n%d x %d = %d", i, table, result);
     }
+    return EXIT_SUCCESS;
 }
