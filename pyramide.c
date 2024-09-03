@@ -5,7 +5,7 @@
 void putchars(unsigned int repeat, char ch) {
     
     for(int i = 0; i < repeat; i++) {
-        printf("%c", ch);
+        putchar(ch);
     }
 
 }
