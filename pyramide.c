@@ -4,14 +4,14 @@
 
 void putchars(unsigned int repeat, char ch) {
     
-    for(unsigned int i = 0; i < repeat; i++) {
+    for(int i = 0; i < repeat; i++) {
         printf("%c", ch);
     }
 
 }
 
 int main(int argc, char *argv[]) {
-    if(argc != 2) {
+    if(argc != 3) {
         return EXIT_FAILURE;
     }
     
